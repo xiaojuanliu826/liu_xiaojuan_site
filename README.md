@@ -1,4 +1,51 @@
-# Getting Started with Create React App
+# Dockerized React Application – Coding Assignment 11
+
+## Project Overview
+This project is a Dockerized React application created using Create React App.
+The application displays an `<h1>` element with the text **"Codin 1"**.
+
+This project demonstrates:
+- Docker environment setup
+- Image building using a Dockerfile
+- Running a container with a custom name
+- Port mapping to access the application on localhost
+
+---
+
+## Docker Requirements
+- Docker Desktop (with WSL2 integration enabled on Windows)
+
+---
+
+## How to Run the Application Using Docker
+
+### 1. Build the Docker Image
+From the project root directory, run:
+
+```bash
+docker build -t liu_xiaojuan_coding_assignment11 .
+This command builds a Docker image named as liu_xiaojuan_coding_assignment11 using the provided Dockerfile under current directory.
+
+2. Run the Docker Container
+docker run -p 7775:3000 --name liu_xiaojuan_coding_assignment11 liu_xiaojuan_coding_assignment11
+Port 3000 inside the container is mapped to port 7775 on the host.
+
+3. Access the Application
+Open a browser and navigate to:
+
+http://127.0.0.1:7775
+You should see the text "Codin 1" displayed on the page.
+
+Dockerfile Explanation
+Base Image: Uses a Node.js Alpine image to run a React development environment.
+
+WORKDIR: The application files are hosted in /liu_xiaojuan_site inside the container.
+
+Dependencies: Project dependencies are installed using npm install.
+
+Application Start: The React development server is started using npm start.
+
+This setup creates a development environment suitable for local testing and learning Docker fundamentals.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
